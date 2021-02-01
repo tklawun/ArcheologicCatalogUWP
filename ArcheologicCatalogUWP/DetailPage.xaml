@@ -1,0 +1,69 @@
+﻿<Page
+    x:Class="ArcheologicCatalogUWP.DetailPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ArcheologicCatalogUWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <SplitView x:Name="splitView" PaneBackground="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}"
+           IsPaneOpen="True" OpenPaneLength="256" CompactPaneLength="48" DisplayMode="Inline">
+            <SplitView.Pane>
+                <RelativePanel Margin="0,0,-1,10">
+                    <StackPanel x:Name="ArcheoObject" Margin="10" BorderBrush="AliceBlue" >
+                        <TextBox x:Name="ArcheoObjectCode" Header= "Code" HorizontalAlignment="Left" MaxWidth="100" Margin="10"/>
+                        <ComboBox x:Name="ArcheoObjectTypeOfBuild" Header="Baubezeichnung" MaxWidth="200" Margin="10"/>
+                        <TextBox x:Name="ArcheoBoxCoordination" Header="Koordinaten (Ko.)" MaxWidth="200" Margin="10"/>
+                        <ComboBox x:Name="ArcheoObjectRockTypeText" Header="Gesteinstyp" MaxWidth="200" Margin="10"/>
+                    </StackPanel>
+                    <StackPanel x:Name="ArcheoObjectDimension" Margin="10" Orientation="Horizontal" RelativePanel.Below="ArcheoObject">
+                        <TextBox x:Name="ArcheoObjectHeight" Header="Höhe" Margin="5" />
+                        <TextBox x:Name="ArcheoObjectWidht" Header="Breite" Margin="5" />
+                        <TextBox x:Name="ArcheoObjectDept" Header="Tiefe" Margin="5" />
+                    </StackPanel>
+                    <StackPanel x:Name="ArcheoObjectPictureButton" Margin="10" Orientation="Horizontal" RelativePanel.Below="ArcheoObjectDimension">
+                        <Button x:Name="ImagePiker" Content="Bild auswählen..." Margin="5" Click="ImagePiker_Click"/>
+                    </StackPanel>
+                    <StackPanel x:Name="ArcheoObjectButton" Margin="10" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignRightWithPanel="True" Orientation="Horizontal">
+                        <Button x:Name="Save" Content="Speichern" Margin="5"></Button>
+                        <Button x:Name="Cancel" Content="Abbrechen" Margin="5" Click="Cancel_Click"></Button>
+                    </StackPanel>
+                </RelativePanel>
+            </SplitView.Pane>
+            <SplitView.Content>
+                <RelativePanel>
+                    <StackPanel x:Name="ArcheoObjectHeader" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" >
+                        <TextBlock x:Name="title" FontSize="36" VerticalAlignment="Center" HorizontalAlignment="Center" ><Run Text="Archäologisches Objekt"/></TextBlock>
+                    </StackPanel>
+                    <StackPanel x:Name="ArcheoObjectDescription" RelativePanel.AlignLeftWithPanel="True"  Orientation="Horizontal" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="ArcheoObjectHeader">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="2*" />
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Margin="10" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center"><Run Text="Beschreibung"/></TextBlock>
+                            <TextBlock Margin="10" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center"><Run Text="Besonderheiten"/></TextBlock>
+                            <RichEditBox x:Name="ArcheoObjectRichTxtDescription" Height="100" Grid.Column="0" Grid.Row="1" MinWidth="300" Margin="10,0,10,0"/>
+                            <RichEditBox x:Name="ArcheoObjectRichTxtSpecialFeature" Height="100" Grid.Column="1" Grid.Row="1" MinWidth="300" Margin="10,0,10,0"/>
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel x:Name="ArcheoObjectPicture"  RelativePanel.Below="ArcheoObjectDescription" RelativePanel.AlignBottomWithPanel="True" HorizontalAlignment="Center" RelativePanel.AlignLeftWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True" RenderTransformOrigin="0.5,0.5">
+                        <StackPanel.RenderTransform>
+                            <CompositeTransform SkewY="0" TranslateY="0"/>
+                        </StackPanel.RenderTransform>
+                        <Image x:Name="Picture" Source="/ImageCantReload.jpg" Margin="10,10,10,10" Stretch="Uniform" ManipulationMode="None" Height="461" Width="564" />
+                    </StackPanel>
+
+                </RelativePanel>
+            </SplitView.Content>
+        </SplitView>
+    </Grid>
+</Page>
