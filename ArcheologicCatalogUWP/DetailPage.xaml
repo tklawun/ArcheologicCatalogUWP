@@ -36,7 +36,7 @@
             <SplitView.Content>
                 <RelativePanel>
                     <StackPanel x:Name="ArcheoObjectHeader" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" >
-                        <TextBlock x:Name="title" FontSize="36" VerticalAlignment="Center" HorizontalAlignment="Center" ><Run Text="Archäologisches Objekt"/></TextBlock>
+                        <TextBlock x:Name="title" FontSize="36" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" ><Run Text="Archäologisches Objekt"/></TextBlock>
                     </StackPanel>
                     <StackPanel x:Name="ArcheoObjectDescription" RelativePanel.AlignLeftWithPanel="True"  Orientation="Horizontal" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignRightWithPanel="True" RelativePanel.Below="ArcheoObjectHeader">
                         <Grid>
@@ -61,7 +61,6 @@
                         </StackPanel.RenderTransform>
                         <Image x:Name="Picture" Source="/ImageCantReload.jpg" Margin="10,10,10,10" Stretch="Uniform" ManipulationMode="None" Height="461" Width="564" />
                     </StackPanel>
-
                 </RelativePanel>
             </SplitView.Content>
         </SplitView>

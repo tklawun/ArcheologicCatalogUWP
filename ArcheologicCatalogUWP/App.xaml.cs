@@ -30,6 +30,8 @@ namespace ArcheologicCatalogUWP
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+            DataAccessLibrary.DataAccess.InitializeDatabase();
         }
 
         /// <summary>
