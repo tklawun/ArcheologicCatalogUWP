@@ -25,6 +25,9 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </StackPanel>
+            <StackPanel x:Name="Test">
+                <Button x:Name="TestButton" Content="Test" Click="TestButton_Click"/>
+            </StackPanel>
         </RelativePanel>
     </Grid>
 </Page>

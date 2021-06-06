@@ -29,6 +29,11 @@ namespace ArcheologicCatalogUWP
         {
             this.InitializeComponent();
             //Add ArcheoObject into the ArcheoObjects
+            //Laden der ArcheoObject Daten in der App.xaml.cs
+
+
+             
+
             // Dummy Daten
             this.ArcheoObjects.Add(new ArcheoObject() { CodeOut = "Test1", PictureLinkOut = "C:\\Users\\das70\\OneDrive\\Bilder\\20191124 Beirut\\IMG_20191124_152518.jpg" });
             this.ArcheoObjects.Add(new ArcheoObject() { CodeOut = "Test2", PictureLinkOut = "C:\\Users\\das70\\OneDrive\\Bilder\\20191124 Beirut\\IMG_20191124_152518.jpg" });
@@ -38,6 +43,17 @@ namespace ArcheologicCatalogUWP
         private void ListView_Tapped(object sender, TappedRoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(DetailPage));
+        }
+
+        private void TestButton_Click(object sender, RoutedEventArgs e)
+        {
+            //DataAccessLibrary.DataAccess.InitializeDatabase();
+            string[] archeoObjectExample = new string[] { "Id", "Code", "Coordinates", "TypOfBuild", "Height", "Width", "Depth", "Description", "SpecialFeatures", "PictureLink", "RockType" };
+
+            DataAccessLibrary.DataAccess.AddData(archeoObjectExample);
+
+            List<Object> Test = DataAccessLibrary.DataAccess.GetData();
+
         }
     }
 }
